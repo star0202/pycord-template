@@ -1,0 +1,4 @@
+TEST_GUILD_ID = 0
+STATUS = ""
+COLOR = ""
+BAD = ""

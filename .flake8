@@ -1,0 +1,4 @@
+[flake8]
+ignore = E501, F722, F821, W503, C901
+exclude = venv, .git, __pycache__
+count = True

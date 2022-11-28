@@ -11,7 +11,7 @@ from traceback import format_exception
 
 class Bot(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix="!", intents=discord.Intents.all(), help_command=None, debug_guilds=[TEST_GUILD_ID])
+        super().__init__(command_prefix="!", intents=discord.Intents.all(), help_command=None, debug_guilds=TEST_GUILD_ID)
         setup_logging()
         self.logger = logging.getLogger(__name__)
         self.start_time = time()

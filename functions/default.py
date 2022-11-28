@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Manage(commands.Cog):
+class Default(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
@@ -69,7 +69,7 @@ class Manage(commands.Cog):
 
 def setup(bot):
     logger.info("Loaded")
-    bot.add_cog(Manage(bot))
+    bot.add_cog(Default(bot))
 
 
 def teardown():

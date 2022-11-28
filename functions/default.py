@@ -38,7 +38,7 @@ class Manage(commands.Cog):
             s = s - 60
             m += 1
         embed = discord.Embed(title="봇 정보", color=COLOR)
-        embed.set_thumbnail(url=ctx.bot.user.avatar.url)
+        embed.set_thumbnail(url=ctx.bot.user.display_avatar.url)
         embed.add_field(name="봇 이름", value=f"**{ctx.bot.user.name}** ({str(ctx.bot.user)})", inline=False)
         embed.add_field(
             name="업타임", value=f"{d} 일 {h} 시간 {m} 분 {s} 초",

@@ -23,7 +23,7 @@ class Bot(commands.Bot):
 
     def load_cog(self, cog: str):
         try:
-            if type(self.load_extension(cog)[cog]) == discord.ExtensionFailed:
+            if type(self.load_extension(cog, store=True)[cog]) == discord.ExtensionFailed:
                 self.logger.error(self.load_extension(cog)[cog])
         except Exception as e:
             self.logger.error(e)

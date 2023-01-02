@@ -40,7 +40,7 @@ class Bot(commands.Bot): # noqa
         self.logger.info(f"Session ID: {self.session}")
         await self.change_presence(
             status=discord.Status.online,
-            activity=discord.Game(STATUS),
+            activity=discord.Game(STATUS)
         )
         await self.wait_until_ready()
 
@@ -58,13 +58,14 @@ class Bot(commands.Bot): # noqa
         )
 
     async def on_error(self, event, *args, **kwargs):
-        await args[0].channel.send(
-            embed=discord.Embed(
-                title="오류 발생",
-                description="개발자에게 문의 바랍니다.",
-                color=BAD
+        if args[0]:
+            await args[0].channel.send(
+                embed=discord.Embed(
+                    title="오류 발생",
+                    description="개발자에게 문의 바랍니다.",
+                    color=BAD
+                )
             )
-        ) if args[0] else None
         self.logger.error(format_exc())
 
     async def on_application_command(self, ctx: discord.ApplicationContext):

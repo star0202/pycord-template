@@ -1,7 +1,7 @@
 from logging import getLogger
 
-from discord import ApplicationContext, Option
-from discord.ext import commands
+from discord import ApplicationContext, Option # noqa
+from discord.ext import commands # noqa
 
 from utils.commands import slash_command
 

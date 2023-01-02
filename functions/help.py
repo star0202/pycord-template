@@ -1,8 +1,8 @@
 from logging import getLogger
 
-import discord
-from discord.commands import ApplicationContext
-from discord.ext import commands
+import discord # noqa
+from discord.commands import ApplicationContext # noqa
+from discord.ext import commands # noqa
 
 from config import COLOR
 from constants import HELP_SELECT_RAW, HELP_EMBED_RAW

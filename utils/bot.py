@@ -11,6 +11,7 @@ from config import BAD, STATUS
 from constants import OPTION_TYPES
 from utils.crypt import AESCipher
 from utils.logger import setup_logging
+from utils.database import Database
 
 
 class Bot(commands.Bot):  # noqa
@@ -21,6 +22,7 @@ class Bot(commands.Bot):  # noqa
         self.start_time = time()
         self.session = uuid4()
         self.crypt = AESCipher(getenv("AES_KEY"))
+        self.db = Database(getenv("DATABASE"), self.logger)
         for filename in listdir("functions"):
             if filename.endswith(".py"):
                 self.load_cog(f"functions.{filename[:-3]}")

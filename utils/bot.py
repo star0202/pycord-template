@@ -22,7 +22,7 @@ class Bot(commands.Bot):  # noqa
         self.start_time = time()
         self.session = uuid4()
         self.crypt = AESCipher(getenv("AES_KEY"))
-        self.db = Database(getenv("DATABASE"), self.logger)
+        self.db = Database
         for filename in listdir("functions"):
             if filename.endswith(".py"):
                 self.load_cog(f"functions.{filename[:-3]}")
@@ -40,6 +40,7 @@ class Bot(commands.Bot):  # noqa
         super().run(getenv("TOKEN"))
 
     async def on_ready(self):
+        self.db = await Database.create(getenv("DATABASE"), self.logger)
         self.logger.info(f"Logged in as {self.user.name}")
         self.logger.info(f"Session ID: {self.session}")
         await self.change_presence(

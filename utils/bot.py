@@ -9,7 +9,8 @@ from discord.ext import commands # noqa
 
 from config import BAD, STATUS
 from constants import OPTION_TYPES
-from utils.logger import setup_logging
+from logger import setup_logging
+from crypt import AESCipher
 
 
 class Bot(commands.Bot): # noqa
@@ -19,6 +20,7 @@ class Bot(commands.Bot): # noqa
         self.logger = getLogger(__name__)
         self.start_time = time()
         self.session = uuid4()
+        self.crypt = AESCipher(getenv("AES_KEY"))
         for filename in listdir("functions"):
             if filename.endswith(".py"):
                 self.load_cog(f"functions.{filename[:-3]}")

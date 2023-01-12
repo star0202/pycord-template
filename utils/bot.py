@@ -4,16 +4,16 @@ from time import time
 from traceback import format_exc, format_exception
 from uuid import uuid4
 
-import discord # noqa
-from discord.ext import commands # noqa
+import discord  # noqa
+from discord.ext import commands  # noqa
 
 from config import BAD, STATUS
 from constants import OPTION_TYPES
-from logger import setup_logging
 from crypt import AESCipher
+from logger import setup_logging
 
 
-class Bot(commands.Bot): # noqa
+class Bot(commands.Bot):  # noqa
     def __init__(self):
         super().__init__(intents=discord.Intents.all(), help_command=None)
         setup_logging()

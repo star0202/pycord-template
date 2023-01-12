@@ -2,7 +2,7 @@ from datetime import datetime
 from time import mktime
 from typing import List, Dict, Union, Optional
 
-from discord import Embed, SelectOption # noqa
+from discord import Embed, SelectOption  # noqa
 from pytz import timezone
 
 

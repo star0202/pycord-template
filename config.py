@@ -1,4 +1,4 @@
 TEST_GUILD_ID = []
 STATUS = ""
-COLOR = ""
-BAD = ""
+COLOR = 0x2f3136
+BAD = 0xed4245

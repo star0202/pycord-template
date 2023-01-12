@@ -1,4 +1,4 @@
-TEST_GUILD_ID = None
+TEST_GUILD_ID = []
 STATUS = ""
 COLOR = ""
 BAD = ""

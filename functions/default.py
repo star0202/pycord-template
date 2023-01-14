@@ -1,9 +1,9 @@
 from logging import getLogger
 from time import time
 
-from discord import Embed  # noqa
-from discord.commands import ApplicationContext  # noqa
-from discord.ext import commands  # noqa
+from discord import Embed
+from discord.commands import ApplicationContext
+from discord.ext import commands
 
 from config import COLOR
 from constants import VERSION
@@ -51,10 +51,6 @@ class Default(commands.Cog):
         await ctx.respond(embed=embed)
 
 
-def setup(bot):
+def setup(bot: Bot):
     logger.info("Loaded")
     bot.add_cog(Default(bot))
-
-
-def teardown():
-    logger.info("Unloaded")

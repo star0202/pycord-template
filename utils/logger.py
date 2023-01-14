@@ -1,4 +1,4 @@
-import logging
+from logging import basicConfig, DEBUG, ERROR, FileHandler, Formatter, INFO, LogRecord, StreamHandler
 from sys import argv
 
 from utils.utils import get_time
@@ -14,11 +14,11 @@ COLORS = {
 }
 
 
-class StreamFormatter(logging.Formatter):
+class StreamFormatter(Formatter):
     def __init__(self, formattype, datefmt, style):
         super().__init__(formattype, datefmt, style)
 
-    def format(self, record: logging.LogRecord):
+    def format(self, record: LogRecord):
         space = 8 - len(record.levelname)
         levelname_color = COLORS[record.levelname] + record.levelname + RESET + " " * space
         record.levelname = levelname_color
@@ -33,21 +33,21 @@ class StreamFormatter(logging.Formatter):
 
 def setup_logging():
     if len(argv) > 1 and argv[1] == "debug":
-        level = logging.DEBUG
+        level = DEBUG
     else:
-        level = logging.INFO
+        level = INFO
     today = get_time()
-    filehandler = logging.FileHandler(f"logs/{today.strftime('%Y-%m-%d-%H-%M-%S')}.log", "a", "utf-8")
-    filehandler.setLevel(logging.DEBUG)
-    handler = logging.StreamHandler()
+    filehandler = FileHandler(f"logs/{today.strftime('%Y-%m-%d-%H-%M-%S')}.log", "a", "utf-8")
+    filehandler.setLevel(DEBUG)
+    handler = StreamHandler()
     handler.setFormatter(
         StreamFormatter("%(asctime)s.%(msecs)03d %(levelname)s %(name)s: %(message)s", "%Y-%m-%d %H:%M:%S", "%"))
     handler.setLevel(level)
-    errorhandler = logging.FileHandler(f"errors/error-{today.strftime('%Y-%m-%d-%H-%M-%S')}.log", "a", "utf-8",
-                                       delay=True)
-    errorhandler.setLevel(logging.ERROR)
-    logging.basicConfig(
+    errorhandler = FileHandler(f"errors/error-{today.strftime('%Y-%m-%d-%H-%M-%S')}.log", "a", "utf-8",
+                               delay=True)
+    errorhandler.setLevel(ERROR)
+    basicConfig(
         format="%(asctime)s.%(msecs)03d %(levelname)-8s %(name)-22s: %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
-        handlers=[filehandler, errorhandler, handler], level=logging.DEBUG
+        handlers=[filehandler, errorhandler, handler], level=DEBUG
     )

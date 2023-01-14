@@ -1,4 +1,6 @@
-TEST_GUILD_ID = []
-STATUS = ""
-COLOR = 0x2f3136
-BAD = 0xed4245
+from typing import Final
+
+TEST_GUILD_ID: Final[list[int]] = []
+STATUS: Final[str] = ""
+COLOR: Final[int] = 0x2f3136
+BAD: Final[int] = 0xed4245

@@ -1,8 +1,8 @@
 from datetime import datetime
 from time import mktime
-from typing import List, Dict, Union, Optional
+from typing import Any, Optional
 
-from discord import Embed, SelectOption  # noqa
+from discord import Embed, SelectOption
 from pytz import timezone
 
 
@@ -14,7 +14,7 @@ def datetime_to_unix(n: datetime) -> int:
     return int(mktime(n.timetuple()))
 
 
-def help_maker(raw: Dict, color: int, is_embed: Optional[bool] = True) -> List[Union[Embed, SelectOption]]:
+def help_maker(raw: dict, color: int, is_embed: Optional[bool] = True) -> list[Embed] | list[SelectOption]:
     embed_list = []
     for title in raw:
         embed_list.append(
@@ -30,3 +30,7 @@ def help_maker(raw: Dict, color: int, is_embed: Optional[bool] = True) -> List[U
             )
         )
     return embed_list
+
+
+def if_none_return(value: Any, return_value: Any) -> Any:
+    return value if value else return_value

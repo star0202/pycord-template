@@ -8,8 +8,7 @@ from discord import ApplicationContext, DiscordException, Embed, ExtensionFailed
 from discord.ext import commands
 from discord.ext.commands import Context
 
-from classes import AESCipher
-from classes import Database
+from classes import AESCipher, Database
 from config import BAD, STATUS
 from constants import OPTION_TYPES
 from utils.logger import setup_logging

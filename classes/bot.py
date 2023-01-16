@@ -40,7 +40,7 @@ class Bot(commands.Bot):
         super().run(getenv("TOKEN"))
 
     async def on_ready(self):
-        self.db = await Database.create(getenv("DATABASE"), self.logger)
+        self.db = await self.db.create(getenv("DATABASE"), self.logger)
         self.logger.info(f"Logged in as {self.user.name}")
         self.logger.info(f"Session ID: {self.session}")
         await self.change_presence(

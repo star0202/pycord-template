@@ -4,3 +4,4 @@ __pycache__/
 .idea/
 *.log
 *.db
+.mypy_cache/

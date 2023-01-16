@@ -4,10 +4,10 @@ from discord import Embed
 from discord.commands import ApplicationContext
 from discord.ext import commands
 
+from classes import Bot
 from config import COLOR
-from utils.commands import slash_command
-from views.help import HelpMenu
-from utils.bot import Bot
+from utils import slash_command
+from views import HelpMenu
 
 logger = getLogger(__name__)
 

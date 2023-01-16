@@ -5,9 +5,9 @@ from aiosqlite import Error
 from discord import ApplicationContext, Embed, Option
 from discord.ext import commands
 
+from classes import Bot
 from config import BAD, COLOR
-from utils.commands import slash_command
-from utils.bot import Bot
+from utils import slash_command
 
 logger = getLogger(__name__)
 

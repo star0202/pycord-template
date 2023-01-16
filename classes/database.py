@@ -1,6 +1,6 @@
 from logging import Logger
 
-from aiosqlite import connect, Cursor, Connection
+from aiosqlite import connect, Connection, Cursor
 
 
 class Database:

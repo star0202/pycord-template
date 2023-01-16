@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 
-from utils.bot import Bot
+from classes import Bot
 
 load_dotenv(".env")
 

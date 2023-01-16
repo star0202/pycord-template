@@ -3,7 +3,7 @@ from discord.ui import select, View
 
 from config import COLOR
 from constants import HELP_EMBED_RAW, HELP_SELECT_RAW
-from utils.utils import help_maker
+from utils import help_maker
 
 help_list = list(HELP_SELECT_RAW.keys())
 help_select = help_maker(HELP_SELECT_RAW, COLOR, False)

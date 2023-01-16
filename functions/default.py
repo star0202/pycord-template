@@ -5,10 +5,10 @@ from discord import Embed
 from discord.commands import ApplicationContext
 from discord.ext import commands
 
+from classes import Bot
 from config import COLOR
 from constants import VERSION
-from utils.bot import Bot
-from utils.commands import slash_command
+from utils import slash_command
 
 logger = getLogger(__name__)
 

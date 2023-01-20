@@ -10,7 +10,7 @@ from discord.ext.commands import Context
 
 from classes import AESCipher, Database
 from config import BAD, STATUS
-from constants import OPTION_TYPES
+from constants import OPTION_TYPES, DATABASE_INIT
 from utils.logger import setup_logging
 
 
@@ -41,6 +41,11 @@ class Bot(commands.Bot):
 
     async def on_ready(self):
         self.db = await self.db.create(getenv("DATABASE"), self.logger)
+        for table in DATABASE_INIT:
+            column_list = ""
+            for column in table["columns"]:
+                column_list += f"{column} {table['columns'][column]}, "
+            await self.db.execute(f"CREATE TABLE IF NOT EXISTS {table['name']} ({column_list[:-2]})")
         self.logger.info(f"Logged in as {self.user.name}")
         self.logger.info(f"Session ID: {self.session}")
         await self.change_presence(

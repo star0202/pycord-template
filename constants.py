@@ -12,6 +12,15 @@ HELP_EMBED_RAW: Final[dict[str, str]] = {
     "/봇": "봇의 정보를 출력합니다.",
     "/핑": "봇의 핑을 출력합니다."
 }
+DATABASE_INIT: Final[list[dict[str, str | dict[str, str]]]] = [
+    {
+        "name": "User",
+        "columns": {
+            "id": "INTEGER",
+            "data": "TEXT"
+        }
+    }
+]
 OPTION_TYPES: Final[dict[int, str]] = {
     1: "SUB_COMMAND",
     2: "SUB_COMMAND_GROUP",

@@ -1,24 +1,26 @@
 # Pycord Template by Starcea
-
-## Setup venv and necessary files
-
-```bash
-$ cp .env.example .env
-$ touch "your database file"
-$ python3 -m venv venv
-$ . venv/bin/activate
-$ pip install -Ur requirements.txt
-```
-
-## Setup .env
-
-```py
-TOKEN="your token"
-DATABASE="your database file"
-```
-
-## Enjoy!
-
-```bash
-$ python main.py
-```
+## Setup Virtual Environment and Necessary Files
+- Make Directory `errors` and `logs`
+- Make Empty File `"your database file"` for Database
+- Copy `.env.example` to `.env`
+    - `.env` file:
+        ```py
+        TOKEN="your token"
+        DATABASE="your database file"
+        ```
+- Make Virtual Environment & Activate it
+    - POSIX
+        ```bash
+        $ python3 -m venv venv
+        $ . venv/bin/activate
+        ```
+    - Windows
+        ```pwsh
+        > python -m venv venv
+        > venv/scripts/activate
+        ```
+- Install Requirements
+    ```pwsh
+    > pip install -Ur requirements.txt
+    ```
+## Enjoy Programming!

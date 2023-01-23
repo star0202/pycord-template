@@ -1,7 +1,7 @@
 from logging import basicConfig, DEBUG, ERROR, FileHandler, Formatter, INFO, LogRecord, StreamHandler
 from sys import argv
 
-from utils import get_time
+from .utils import get_time
 
 RESET = "\033[0m"
 CYAN = "\033[1;36m"

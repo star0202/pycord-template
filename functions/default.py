@@ -1,7 +1,7 @@
 from logging import getLogger
 from time import time
 
-from discord import Embed
+from discord import ClientUser, Embed
 from discord.commands import ApplicationContext
 from discord.ext import commands
 
@@ -42,10 +42,11 @@ class Default(commands.Cog):
             s = s - 60
             m += 1
         embed = Embed(title="봇 정보", color=COLOR)
-        embed.set_thumbnail(url=self.bot.user.display_avatar.url)
-        embed.add_field(name="봇 이름", value=f"**{self.bot.user.name}** ({str(self.bot.user)})", inline=False)
+        me: ClientUser = self.bot.user
+        embed.set_thumbnail(url=me.display_avatar.url)
+        embed.add_field(name="봇 이름", value=f"**{me.name}** ({str(me)})", inline=False)
         embed.add_field(name="업타임", value=f"{d} 일 {h} 시간 {m} 분 {s} 초", inline=False)
-        embed.add_field(name="봇 ID", value=str(self.bot.user.id), inline=False)
+        embed.add_field(name="봇 ID", value=str(me.id), inline=False)
         embed.add_field(name="세션 ID", value=f"||{str(self.bot.session)}||", inline=False)
         embed.add_field(name="버전", value=str(VERSION), inline=False)
         await ctx.respond(embed=embed)

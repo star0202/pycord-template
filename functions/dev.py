@@ -38,12 +38,6 @@ class Dev(commands.Cog):
         await ctx.respond(f"{ext_name}.py reloaded", ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def send_here(self, ctx: ApplicationContext, content: Option(str)):
-        await ctx.send(content)
-        delete_this = await ctx.respond("random respond")
-        await delete_this.delete_original_response()
-
-    @slash_command(guild_ids=DEV_GUILD_ID)
     async def sql(self, ctx: ApplicationContext, sql: Option(str)):
         try:
             result = await self.bot.db.execute(sql)

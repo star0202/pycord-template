@@ -30,7 +30,3 @@ def help_maker(raw: dict, color: int, is_embed: Optional[bool] = True) -> list[E
             )
         )
     return embed_list
-
-
-def if_none_return(value: Any, return_value: Any) -> Any:
-    return value if value else return_value

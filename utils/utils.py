@@ -1,6 +1,6 @@
 from datetime import datetime
 from time import mktime
-from typing import Any, Optional
+from typing import Optional
 
 from discord import Embed, SelectOption
 from pytz import timezone

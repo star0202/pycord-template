@@ -1,7 +1,7 @@
 from typing import Final
 
 VERSION: Final[str] = "v0.1.0"  # 봇 버전
-TEMPLATE_VERSION: Final[str] = "v1.2.1"  # 템플릿 버전
+TEMPLATE_VERSION: Final[str] = "v1.2.2"  # 템플릿 버전
 HELP_SELECT_RAW: Final[dict[str, str]] = {  # 간단한 명령어 설명(매개변수 미포함)
     "/도움말": "도움말을 출력합니다.",
     "/봇": "봇의 정보를 출력합니다.",

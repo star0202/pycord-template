@@ -12,7 +12,7 @@ from .crypt import AESCipher
 from .database import Database
 from config import BAD, STATUS
 from constants import OPTION_TYPES, DATABASE_INIT
-from utils.logger import setup_logging
+from utils import setup_logging
 
 
 class Bot(commands.Bot):

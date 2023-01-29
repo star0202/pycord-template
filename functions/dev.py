@@ -1,4 +1,6 @@
+from json import loads
 from logging import getLogger
+from os import getenv
 from traceback import format_exc
 
 from aiosqlite import Error
@@ -6,10 +8,11 @@ from discord import ApplicationContext, Embed, Option
 from discord.ext import commands
 
 from classes import Bot
-from config import BAD, COLOR, DEV_GUILD_ID
+from config import BAD, COLOR
 from utils import slash_command
 
 logger = getLogger(__name__)
+DEV_GUILD_ID = loads(getenv("DEV_GUILD_ID"))
 
 
 class Dev(commands.Cog):

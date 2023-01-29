@@ -1,6 +1,9 @@
+from json import loads
+from os import getenv
+
 from discord.commands import application_command, SlashCommand
 
-from config import TEST_GUILD_ID
+TEST_GUILD_ID = loads(getenv("TEST_GUILD_ID"))
 
 
 def slash_command(**kwargs):

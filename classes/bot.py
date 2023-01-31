@@ -4,20 +4,20 @@ from time import time
 from traceback import format_exc, format_exception
 from uuid import uuid4
 
-from discord import ApplicationContext, DiscordException, Embed, ExtensionFailed, Game, Intents, Status
+from discord import ApplicationContext, DiscordException, Embed, ExtensionFailed, Game, Status
 from discord.ext import commands
 from discord.ext.commands import Context
 
-from .crypt import AESCipher
-from .database import Database
 from config import BAD, STATUS
 from constants import OPTION_TYPES, DATABASE_INIT
 from utils import setup_logging
+from .crypt import AESCipher
+from .database import Database
 
 
 class Bot(commands.Bot):
     def __init__(self):
-        super().__init__(intents=Intents.all(), help_command=None)
+        super().__init__(help_command=None)
         setup_logging()
         self.logger = getLogger(__name__)
         self.start_time = time()

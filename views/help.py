@@ -16,4 +16,4 @@ class HelpMenu(View):
 
     @select(placeholder="명령어를 선택하세요", options=help_select)
     async def callback(self, slt, interaction: Interaction):
-        await interaction.response.edit_response(embed=help_embed[help_list.index(slt.values[0])], view=self)
+        await interaction.response.edit_message(embed=help_embed[help_list.index(slt.values[0])], view=self)

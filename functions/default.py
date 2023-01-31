@@ -3,7 +3,7 @@ from time import time
 
 from discord import ClientUser, Embed
 from discord.commands import ApplicationContext
-from discord.ext import commands
+from discord.ext.commands import Cog
 
 from classes import Bot
 from config import COLOR
@@ -13,7 +13,7 @@ from utils import slash_command
 logger = getLogger(__name__)
 
 
-class Default(commands.Cog):
+class Default(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
 

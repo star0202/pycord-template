@@ -5,7 +5,7 @@ from traceback import format_exc
 
 from aiosqlite import Error
 from discord import ApplicationContext, Embed, Option
-from discord.ext import commands
+from discord.ext.commands import Cog
 
 from classes import Bot
 from config import BAD, COLOR
@@ -15,7 +15,7 @@ logger = getLogger(__name__)
 DEV_GUILD_ID = loads(getenv("DEV_GUILD_ID"))
 
 
-class Dev(commands.Cog):
+class Dev(Cog):
     def __init__(self, bot):
         self.bot = bot
 

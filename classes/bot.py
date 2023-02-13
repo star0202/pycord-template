@@ -16,8 +16,9 @@ from discord.ext import commands
 from discord.ext.commands import Context
 
 from config import BAD, STATUS
-from constants import OPTION_TYPES, DATABASE_INIT
-from utils import setup_logging, load_env
+from constants import DATABASE_INIT, OPTION_TYPES
+from utils import load_env, setup_logging
+
 from .crypt import AESCipher
 from .database import Database
 

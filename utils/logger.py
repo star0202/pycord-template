@@ -1,12 +1,12 @@
 from logging import (
-    basicConfig,
     DEBUG,
     ERROR,
+    INFO,
     FileHandler,
     Formatter,
-    INFO,
     LogRecord,
     StreamHandler,
+    basicConfig,
 )
 from sys import argv
 

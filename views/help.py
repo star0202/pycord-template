@@ -1,5 +1,5 @@
 from discord import Interaction
-from discord.ui import select, View
+from discord.ui import View, select
 
 from config import COLOR
 from constants import HELP_EMBED_RAW, HELP_SELECT_RAW

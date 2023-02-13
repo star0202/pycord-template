@@ -1,4 +1,4 @@
-from discord.commands import application_command, SlashCommand
+from discord.commands import SlashCommand, application_command
 
 from utils import load_env
 

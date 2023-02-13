@@ -1,6 +1,6 @@
 from logging import Logger
 
-from aiosqlite import connect, Connection, Cursor, Row
+from aiosqlite import Connection, Cursor, Row, connect
 
 
 def require_cursor(func):

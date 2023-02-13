@@ -2,7 +2,7 @@ from datetime import datetime
 from json import loads
 from os import getenv
 from time import mktime
-from typing import Optional, Type, Any
+from typing import Any, Optional, Type
 
 from discord import Embed, SelectOption
 from pytz import timezone

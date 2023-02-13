@@ -35,7 +35,14 @@ class Database:
         return await cursor.fetchone()
 
     @require_cursor
-    async def update(self, cursor: Cursor, table: str, column: str, value: str | bool | int, value_id: int):
+    async def update(
+        self,
+        cursor: Cursor,
+        table: str,
+        column: str,
+        value: str | bool | int,
+        value_id: int,
+    ):
         if isinstance(value, str):
             value = f"'{value}'"
         await cursor.execute(f"UPDATE {table} SET {column}={value} WHERE id={value_id}")

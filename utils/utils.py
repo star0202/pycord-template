@@ -19,22 +19,20 @@ def datetime_to_unix(n: datetime) -> int:
 def help_embed_maker(raw: dict[str, str], color: int) -> list[Embed]:
     obj_list: list[Embed] = []
     for title in raw:
-        obj_list.append(
-            Embed(title=title, description=raw[title], color=color)
-        )
+        obj_list.append(Embed(title=title, description=raw[title], color=color))
     return obj_list
 
 
 def help_select_maker(raw: dict[str, str]) -> list[SelectOption]:
     obj_list: list[SelectOption] = []
     for title in raw:
-        obj_list.append(
-            SelectOption(label=title, description=raw[title])
-        )
+        obj_list.append(SelectOption(label=title, description=raw[title]))
     return obj_list
 
 
-def load_env(name: str, return_type: Type = str, required: Optional[bool] = True) -> Any:
+def load_env(
+    name: str, return_type: Type = str, required: Optional[bool] = True
+) -> Any:
     data = getenv(name)
     if isinstance(data, str):
         if return_type is str:

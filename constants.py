@@ -12,7 +12,7 @@ HELP_EMBED_RAW: Final[dict[str, str]] = {  # 명령어 설명(매개변수 포�
     "/봇": "봇의 정보를 출력합니다.",
     "/핑": "봇의 핑을 출력합니다."
 }
-DATABASE_INIT: Final[list[dict[str, str | dict[str, str]]]] = [  # 데이터베이스 구조
+DATABASE_INIT: Final[list[dict]] = [  # 데이터베이스 구조
     {
         "name": "User",
         "columns": {

@@ -6,6 +6,7 @@ from aiosqlite import connect, Connection, Cursor, Row
 def require_cursor(func):
     def wrapper(*args, **kwargs):
         return func(cursor=func.__self__.cursor, *args, **kwargs)
+
     return wrapper
 
 

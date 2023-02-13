@@ -1,6 +1,6 @@
-from utils import load_env
-
 from discord.commands import application_command, SlashCommand
+
+from utils import load_env
 
 TEST_GUILD_ID = load_env("TEST_GUILD_ID", list, False)
 

@@ -9,10 +9,10 @@ from discord.ext.commands import Cog
 
 from classes import Bot
 from config import BAD, COLOR
-from utils import slash_command
+from utils import slash_command, load_env
 
 logger = getLogger(__name__)
-DEV_GUILD_ID = loads(getenv("DEV_GUILD_ID"))
+DEV_GUILD_ID = load_env("DEV_GUILD_ID", list)
 
 
 class Dev(Cog):

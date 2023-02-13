@@ -3,11 +3,11 @@ from discord.ui import select, View
 
 from config import COLOR
 from constants import HELP_EMBED_RAW, HELP_SELECT_RAW
-from utils import help_maker
+from utils import help_embed_maker, help_select_maker
 
 help_list = list(HELP_SELECT_RAW.keys())
-help_select = help_maker(HELP_SELECT_RAW, COLOR, False)
-help_embed = help_maker(HELP_EMBED_RAW, COLOR)
+help_select = help_select_maker(HELP_SELECT_RAW)
+help_embed = help_embed_maker(HELP_EMBED_RAW, COLOR)
 
 
 class HelpMenu(View):

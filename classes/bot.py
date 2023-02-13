@@ -1,5 +1,5 @@
 from logging import getLogger
-from os import getenv, listdir
+from os import listdir
 from time import time
 from traceback import format_exc, format_exception
 from uuid import uuid4
@@ -10,9 +10,12 @@ from discord.ext.commands import Context
 
 from config import BAD, STATUS
 from constants import OPTION_TYPES, DATABASE_INIT
-from utils import setup_logging
+from utils import setup_logging, load_env
 from .crypt import AESCipher
 from .database import Database
+
+TOKEN = load_env("TOKEN")
+DATABASE = load_env("DATABASE")
 
 
 class Bot(commands.Bot):
@@ -22,7 +25,7 @@ class Bot(commands.Bot):
         self.logger = getLogger(__name__)
         self.start_time = time()
         self.session = uuid4()
-        self.crypt = AESCipher(getenv("TOKEN"))
+        self.crypt = AESCipher(TOKEN)
         self.db = Database
         for filename in listdir("functions"):
             if filename.endswith(".py"):
@@ -30,18 +33,22 @@ class Bot(commands.Bot):
         self.logger.info(f"{len(self.extensions)} extensions are completely loaded")
 
     def load_cog(self, cog: str):
-        result = self.load_extension(cog, store=True)[cog]
-        try:
-            if isinstance(result, ExtensionFailed):
-                self.logger.error("".join(format_exception(result)))
-        except Exception as e:
-            self.logger.error(e)
+        load = self.load_extension(cog, store=True)
+        if isinstance(load, dict):
+            result = load[cog]
+            try:
+                if isinstance(result, ExtensionFailed):
+                    self.logger.error("".join(format_exception(result)))
+            except Exception as e:
+                self.logger.error(e)
 
     def run(self):
-        super().run(getenv("TOKEN"))
+        super().run(TOKEN)
 
     async def on_ready(self):
-        self.db = await self.db.create(getenv("DATABASE"), self.logger)
+        if not self.user:
+            raise RuntimeError("Bot is not ready")
+        self.db = await self.db.create(DATABASE, self.logger)
         for table in DATABASE_INIT:
             column_list = ""
             for column in table["columns"]:

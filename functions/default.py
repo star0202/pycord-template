@@ -42,7 +42,10 @@ class Default(Cog):
             s = s - 60
             m += 1
         embed = Embed(title="봇 정보", color=COLOR)
-        me: ClientUser = self.bot.user
+        if isinstance(self.bot.user, ClientUser):
+            me = self.bot.user
+        else:
+            raise RuntimeError("Bot is not ready")
         embed.set_thumbnail(url=me.display_avatar.url)
         embed.add_field(name="봇 이름", value=f"**{me.name}** ({str(me)})", inline=False)
         embed.add_field(name="업타임", value=f"{d} 일 {h} 시간 {m} 분 {s} 초", inline=False)

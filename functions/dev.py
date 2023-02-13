@@ -1,6 +1,4 @@
-from json import loads
 from logging import getLogger
-from os import getenv
 from traceback import format_exc
 
 from aiosqlite import Error

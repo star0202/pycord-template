@@ -50,7 +50,9 @@ class Default(Cog):
         embed.add_field(name="봇 이름", value=f"**{me.name}** ({str(me)})", inline=False)
         embed.add_field(name="업타임", value=f"{d} 일 {h} 시간 {m} 분 {s} 초", inline=False)
         embed.add_field(name="봇 ID", value=str(me.id), inline=False)
-        embed.add_field(name="세션 ID", value=f"||{str(self.bot.session)}||", inline=False)
+        embed.add_field(
+            name="세션 ID", value=f"||{str(self.bot.session)}||", inline=False
+        )
         embed.add_field(name="버전", value=str(VERSION), inline=False)
         await ctx.respond(embed=embed)
 

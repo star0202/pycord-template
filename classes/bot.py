@@ -1,6 +1,6 @@
+from datetime import datetime
 from logging import getLogger
 from os import listdir
-from time import time
 from traceback import format_exc, format_exception
 from uuid import uuid4
 
@@ -31,7 +31,7 @@ class Bot(commands.Bot):
         super().__init__(help_command=None)
         setup_logging()
         self.logger = getLogger(__name__)
-        self.start_time = time()
+        self.start_time = datetime.now()
         self.session = uuid4()
         self.crypt = AESCipher(TOKEN)
         self.db = Database

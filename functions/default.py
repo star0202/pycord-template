@@ -1,5 +1,5 @@
+from datetime import datetime
 from logging import getLogger
-from time import time
 
 from discord import ClientUser, Embed
 from discord.commands import ApplicationContext
@@ -27,20 +27,8 @@ class Default(Cog):
 
     @slash_command(name="봇", description="봇의 정보를 전송합니다.")
     async def info(self, ctx: ApplicationContext):
-        nowtime = time()
-        s = round(nowtime - self.bot.start_time)
-        d = 0
-        h = 0
-        m = 0
-        while s >= 86400:
-            s = s - 86400
-            d += 1
-        while s >= 3600:
-            s = s - 3600
-            h += 1
-        while s >= 60:
-            s = s - 60
-            m += 1
+        now = datetime.now()
+        delta = now - self.bot.start_time
         embed = Embed(title="봇 정보", color=COLOR)
         if isinstance(self.bot.user, ClientUser):
             me = self.bot.user
@@ -48,7 +36,11 @@ class Default(Cog):
             raise RuntimeError("Bot is not ready")
         embed.set_thumbnail(url=me.display_avatar.url)
         embed.add_field(name="봇 이름", value=f"**{me.name}** ({str(me)})", inline=False)
-        embed.add_field(name="업타임", value=f"{d} 일 {h} 시간 {m} 분 {s} 초", inline=False)
+        embed.add_field(
+            name="업타임",
+            value=f"{delta.days} 일 {delta.seconds//3600} 시간 {(delta.seconds//60)%60} 분 {delta.seconds} 초",
+            inline=False,
+        )
         embed.add_field(name="봇 ID", value=str(me.id), inline=False)
         embed.add_field(
             name="세션 ID", value=f"||{str(self.bot.session)}||", inline=False

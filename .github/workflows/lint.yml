@@ -16,6 +16,6 @@ jobs:
       - name: Run isort
         run: isort . --check-only
       - name: Run mypy
-        run: mypy . --ignore-missing-imports --check-untyped-defs
+        run: mypy . --install-types --non-interactive --check-untyped-defs
       - name: Run black
         run: black . --check

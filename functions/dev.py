@@ -23,23 +23,23 @@ class Dev(Cog):
         await self.bot.close()
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def load_ext(self, ctx: ApplicationContext, ext_name: Option(str)):
+    async def load_ext(self, ctx: ApplicationContext, ext_name: Option(str)):  # type: ignore
         self.bot.load_extension(ext_name)
         await ctx.respond(f"{ext_name}.py loaded", ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def unload_ext(self, ctx: ApplicationContext, ext_name: Option(str)):
+    async def unload_ext(self, ctx: ApplicationContext, ext_name: Option(str)):  # type: ignore
         self.bot.unload_extension(ext_name)
         await ctx.respond(f"{ext_name}.py loaded", ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def reload_ext(self, ctx: ApplicationContext, ext_name: Option(str)):
+    async def reload_ext(self, ctx: ApplicationContext, ext_name: Option(str)):  # type: ignore
         self.bot.unload_extension(ext_name)
         self.bot.load_extension(ext_name)
         await ctx.respond(f"{ext_name}.py reloaded", ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def sql(self, ctx: ApplicationContext, sql: Option(str)):
+    async def sql(self, ctx: ApplicationContext, sql: Option(str)):  # type: ignore
         try:
             result = await self.bot.db.execute(sql)
             embed = Embed(title="Executed!", color=COLOR)
@@ -54,7 +54,7 @@ class Dev(Cog):
         await ctx.respond(embed=embed, ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def encrypt(self, ctx: ApplicationContext, content: Option(str)):
+    async def encrypt(self, ctx: ApplicationContext, content: Option(str)):  # type: ignore
         embed = Embed(title="Encrypted!", color=COLOR)
         embed.add_field(name="Content", value=f"```{content}```")
         embed.add_field(
@@ -63,7 +63,7 @@ class Dev(Cog):
         await ctx.respond(embed=embed, ephemeral=True)
 
     @slash_command(guild_ids=DEV_GUILD_ID)
-    async def decrypt(self, ctx: ApplicationContext, content: Option(str)):
+    async def decrypt(self, ctx: ApplicationContext, content: Option(str)):  # type: ignore
         embed = Embed(title="Decrypted!", color=COLOR)
         embed.add_field(name="Content", value=f"```{content}```")
         embed.add_field(

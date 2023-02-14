@@ -23,6 +23,7 @@
         ```
 - Install Requirements
     ```pwsh
-    > pip install -Ur requirements.txt
+    > pip install -r requirements.txt
+    > pip install -r requirements-dev.txt # Optional
     ```
 ## Enjoy Programming!
